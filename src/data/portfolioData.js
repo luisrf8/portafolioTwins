@@ -8,7 +8,7 @@ export const portfolioData = {
   three_d_logo: "./img/luis3shifted.png",
   three_d_logo_alt: "Luis Alejandro Rojas Fernández",
   contact: {
-    phone: "0414-885-9372",
+    phone: "+58 414-885-9372",
     email: "larojasf1999@hotmail.com",
     website: "https://www.larf.me/",
     location: "Venezuela, Maturín 6201"
