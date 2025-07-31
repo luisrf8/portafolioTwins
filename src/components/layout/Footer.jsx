@@ -11,7 +11,6 @@ const Footer = () => {
       transition={{ duration: 1, delay: 0.5 }} 
     >
       <p className="text-sm">&copy; {new Date().getFullYear()} {portfolioData.name}. Todos los derechos reservados.</p>
-      <p className="text-xs mt-1">Desarrollado con <span className="text-primary/80">React</span> y <span className="text-blue-400/80">TailwindCSS</span>.</p>
     </motion.footer>
   );
 };
