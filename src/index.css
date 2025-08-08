@@ -87,6 +87,7 @@
 .gradient-text {
   /* Subtle gradient for light theme */
   @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-500;
+  /* @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-pink-500; */
 }
 .dark .gradient-text {
   /* Adjusted gradient for dark theme */

@@ -4,12 +4,13 @@ import { MapPin, Calendar } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Section from '@/components/layout/Section';
-import { portfolioData } from '@/data/portfolioData';
 
-const Experience = () => {
+const Experience = (data) => {
+  const portfolioData = data?.data
+
   return (
     <Section id="experience">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Experiencia Laboral</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Experiencia</h2>
       <div className="space-y-8 md:space-y-10">
         {portfolioData.experience.map((job, index) => (
           <motion.div

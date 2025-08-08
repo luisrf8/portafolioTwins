@@ -4,11 +4,12 @@ import Section from '@/components/layout/Section';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { portfolioData } from '@/data/portfolioData';
 import { useToast } from '@/components/ui/use-toast';
 import { ArrowRight } from 'lucide-react';
 
-const Projects = () => {
+const Projects = (data) => {
+  const portfolioData = data?.data
+
   const { toast } = useToast();
 
   const handleDemoRequest = (projectTitle) => {
@@ -44,7 +45,7 @@ const Projects = () => {
 
   return (
     <Section id="projects" className="bg-muted/40">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Mis Proyectos</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Especialidades</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {portfolioData.projects.map((project, index) => (
           <motion.div

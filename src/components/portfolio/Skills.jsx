@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { Code, Award } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Section from '@/components/layout/Section';
-import { portfolioData } from '@/data/portfolioData';
 import '../../../public/css/SkillsSlider.css'; // 👈 Importa los estilos
 
-const Skills = () => {
+const Skills = (data) => {
+  const portfolioData = data?.data
+
   return (
     <Section id="skills">
       <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Habilidades</h2>
@@ -50,14 +51,14 @@ const Skills = () => {
       </div> */}
 
       <div className="mt-10 text-center">
-        <h3 className="text-2xl font-semibold mb-4 gradient-text">Idiomas</h3>
+        {/* <h3 className="text-2xl font-semibold mb-4 gradient-text">Idiomas</h3>
         <div className='flex flex-wrap justify-center items-center gap-4'>
           {portfolioData.languages.map((lang, index) => (
             <Badge key={index} variant="outline" className="text-md md:text-lg py-2 px-4 border-primary/50 text-primary/90 shadow-md">
               <Award size={18} className="mr-2" /> {lang.lang} <span className="ml-2 text-sm text-foreground/70">({lang.cert})</span>
             </Badge>
           ))}
-        </div>
+        </div> */}
       </div>
     </Section>
   );

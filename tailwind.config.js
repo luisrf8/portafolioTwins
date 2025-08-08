@@ -17,6 +17,7 @@ module.exports = {
 		},
 		extend: {
 			colors: {
+				glass: 'rgba(255, 255, 255, 0.2)',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -50,6 +51,9 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+			},
+			backdropBlur: {
+				xs: '2px',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

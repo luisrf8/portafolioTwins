@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 import { BookOpen, MapPin } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import Section from '@/components/layout/Section';
-import { portfolioData } from '@/data/portfolioData';
 
-const Education = () => {
+const Education = (data) => {
+  const portfolioData = data?.data
+
   return (
     <Section id="education">
-      <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Educación</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center gradient-text">Galeria</h2>
       {portfolioData.education.map((edu, index) => (
         <motion.div
           key={index}

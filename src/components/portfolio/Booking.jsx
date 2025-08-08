@@ -53,7 +53,7 @@ const Booking = () => {
 
   return (
     <Section id="booking" className="bg-background">
-      <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-0 text-center gradient-text">Agendar Reunión</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-5 text-center gradient-text">Contacto</h2>
       <div className="flex justify-between items-center gap-4 w-[90vw] md:w-[80vw] lg:w-[70vw] mx-auto">
         <Card className="bg-card/70 w-full h-fit shadow-xl hover:shadow-primary/20 transition-shadow duration-300">
           <CardHeader>
@@ -111,12 +111,12 @@ const Booking = () => {
             </form>
           </CardContent>
         </Card>
-
+{/* 
 <img
   className="w-[30vw] md:w-[20vw] hidden md:block drop-shadow-[0px_0px_2px_white]"
   src="./img/luis3.png"
   alt="luis"
-/>
+/> */}
       </div>
     </Section>
   );
