@@ -13,7 +13,6 @@ import Booking from '@/components/portfolio/Booking';
 const DynamicPortfolio = () => {
   const { personName } = useParams();
   const personData = portfolioData[personName];
-console.log("pdasdsap", personName)
   if (!personData) {
     return <div className="text-center mt-10 text-red-600">404.</div>;
   }

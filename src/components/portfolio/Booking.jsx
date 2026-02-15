@@ -12,7 +12,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import Section from '@/components/layout/Section';
 import { useToast } from '@/components/ui/use-toast';
 
-const Booking = () => {
+const Booking = ({ data }) => {
   const [date, setDate] = useState(undefined);
   const [time, setTime] = useState('');
   const { toast } = useToast();
@@ -38,7 +38,7 @@ const Booking = () => {
 
     // Generar el mensaje de WhatsApp
     const whatsappMessage = `Hola! Vengo de tu portafolio, me gustaría agendar una reunión para el ${bookingDetails.date} a las ${bookingDetails.time}.`;
-    const whatsappLink = `https://wa.me/584148859372?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://wa.me/4148859372?text=${encodeURIComponent(whatsappMessage)}`;
 
     // Abrir el enlace de WhatsApp
     window.open(whatsappLink, '_blank');
@@ -53,8 +53,8 @@ const Booking = () => {
 
   return (
     <Section id="booking" className="bg-background">
-      <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-5 text-center gradient-text">Contacto</h2>
-      <div className="flex justify-between items-center gap-4 w-[90vw] md:w-[80vw] lg:w-[70vw] mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-5 md:mb-5 text-center gradient-text">¡COLABOREMOS!</h2>
+      <div className="flex justify-between items-center gap-4 w-full max-w-4xl mx-auto">
         <Card className="bg-card/70 w-full h-fit shadow-xl hover:shadow-primary/20 transition-shadow duration-300">
           <CardHeader>
             <CardTitle className="text-2xl text-primary">Selecciona Fecha y Hora</CardTitle>
@@ -111,12 +111,11 @@ const Booking = () => {
             </form>
           </CardContent>
         </Card>
-{/* 
-<img
-  className="w-[30vw] md:w-[20vw] hidden md:block drop-shadow-[0px_0px_2px_white]"
-  src="./img/luis3.png"
-  alt="luis"
-/> */}
+        {/* <img
+          className="w-[30vw] md:w-[30vw] hidden md:block drop-shadow-[0px_0px_2px_white]"
+          src={data.contactImg}
+          alt="contactImg"
+        /> */}
       </div>
     </Section>
   );

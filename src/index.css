@@ -78,6 +78,10 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  #root {
+    overflow-x: hidden;
   }
   h1,h2,h3,h4,h5,h6 {
     @apply font-semibold; /* Adjusted for a cleaner look */
