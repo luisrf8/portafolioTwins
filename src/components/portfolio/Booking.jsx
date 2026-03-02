@@ -99,6 +99,7 @@ const Booking = ({ data }) => {
                     id="time-picker"
                     type="time"
                     value={time}
+                    
                     onChange={(e) => setTime(e.target.value)}
                     className="pl-10 text-base md:text-sm"
                   />
