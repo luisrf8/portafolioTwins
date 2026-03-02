@@ -18,15 +18,18 @@ const Hero = (data) => {
   const isAnnaPath = currentPath === '/anna' || currentPath === '/annarella';
   const isFabioPath = currentPath === '/fabio';
   const portfolioData = data?.data || {};
+  console.log('Datos recibidos en Hero:', portfolioData);
   const contact = portfolioData.contact || {};
   const displayName = portfolioData.name || 'Twins Lanza K';
   const displayTitle = portfolioData.title || 'Creadores de contenido';
+  const dataContactImg = portfolioData.contactImg || '';
   const heroImageSrc =
-    isAnnaPath
-      ? "/img/annarella.png"
+    dataContactImg ||
+    (isAnnaPath
+      ? '/img/annarella.png'
       : isFabioPath
-      ? "/img/fabio.png"
-      : "/img/twins/tw.png";
+      ? '/img/fabio.png'
+      : '/img/twins/tw.png');
   return (
     <div
       id="hero"

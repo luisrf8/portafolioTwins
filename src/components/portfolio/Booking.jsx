@@ -100,7 +100,7 @@ const Booking = ({ data }) => {
                     type="time"
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 text-base md:text-sm"
                   />
                 </div>
               </div>
