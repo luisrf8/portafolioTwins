@@ -1026,67 +1026,70 @@ const AdminPage = () => {
             </p>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {['contactImg', 'img', 'logo'].map((fieldKey) => (
-                <div key={fieldKey} className="space-y-2 rounded-lg border border-border p-3">
-                  <Label>{fieldKey}</Label>
-                  <MediaPreview url={profileData[fieldKey]} label={fieldKey} />
-                  {pendingSingleUploads[fieldKey]?.previewUrl && (
-                    <div className="space-y-1">
-                      <p className="text-xs text-muted-foreground">Nuevo archivo seleccionado</p>
-                      <MediaPreview url={pendingSingleUploads[fieldKey].previewUrl} label={`${fieldKey}-pending`} />
-                      <p className="text-xs text-muted-foreground">{pendingSingleUploads[fieldKey].fileName}</p>
+            <div className="space-y-3">
+              {['contactImg', 'img', 'logo'].map((fieldKey, index) => (
+                <details key={fieldKey} className="rounded-lg border border-border p-3" open={index === 0}>
+                  <summary className="cursor-pointer text-base font-medium capitalize">{fieldKey}</summary>
+                  <div className="mt-3 space-y-2">
+                    <MediaPreview url={profileData[fieldKey]} label={fieldKey} />
+                    {pendingSingleUploads[fieldKey]?.previewUrl && (
+                      <div className="space-y-1">
+                        <p className="text-xs text-muted-foreground">Nuevo archivo seleccionado</p>
+                        <MediaPreview url={pendingSingleUploads[fieldKey].previewUrl} label={`${fieldKey}-pending`} />
+                        <p className="text-xs text-muted-foreground">{pendingSingleUploads[fieldKey].fileName}</p>
+                      </div>
+                    )}
+                    <Input
+                      type="file"
+                      accept="image/*,video/*"
+                      disabled={uploadDisabled}
+                      onChange={(event) => {
+                        const file = event.target.files?.[0];
+                        setPendingSingleUpload(fieldKey, file || null);
+                        event.target.value = '';
+                      }}
+                    />
+                    <div className="flex flex-col gap-2">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        disabled={actionDisabled || reuseOptionsBySection[fieldKey].length === 0}
+                        onClick={() => openReuseModal(fieldKey)}
+                      >
+                        Reutilizar desde otro perfil
+                      </Button>
+                      <Button
+                        type="button"
+                        disabled={uploadDisabled || !pendingSingleUploads[fieldKey]?.file}
+                        onClick={() => handleUploadSingleField(fieldKey)}
+                      >
+                        Subir a {fieldKey}
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        disabled={actionDisabled || !pendingSingleUploads[fieldKey]}
+                        onClick={() => clearPendingSingleUpload(fieldKey)}
+                      >
+                        Quitar selección
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        disabled={actionDisabled || !profileData[fieldKey]}
+                        onClick={() => handleDeleteSingleField(fieldKey)}
+                      >
+                        Eliminar actual
+                      </Button>
                     </div>
-                  )}
-                  <Input
-                    type="file"
-                    accept="image/*,video/*"
-                    disabled={uploadDisabled}
-                    onChange={(event) => {
-                      const file = event.target.files?.[0];
-                      setPendingSingleUpload(fieldKey, file || null);
-                      event.target.value = '';
-                    }}
-                  />
-                  <div className="flex flex-col gap-2">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      disabled={actionDisabled || reuseOptionsBySection[fieldKey].length === 0}
-                      onClick={() => openReuseModal(fieldKey)}
-                    >
-                      Reutilizar desde otro perfil
-                    </Button>
-                    <Button
-                      type="button"
-                      disabled={uploadDisabled || !pendingSingleUploads[fieldKey]?.file}
-                      onClick={() => handleUploadSingleField(fieldKey)}
-                    >
-                      Subir a {fieldKey}
-                    </Button>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      disabled={actionDisabled || !pendingSingleUploads[fieldKey]}
-                      onClick={() => clearPendingSingleUpload(fieldKey)}
-                    >
-                      Quitar selección
-                    </Button>
-                    <Button
-                      type="button"
-                      variant="outline"
-                      disabled={actionDisabled || !profileData[fieldKey]}
-                      onClick={() => handleDeleteSingleField(fieldKey)}
-                    >
-                      Eliminar actual
-                    </Button>
                   </div>
-                </div>
+                </details>
               ))}
             </div>
 
-            <div className="space-y-3 rounded-lg border border-border p-4">
-              <Label className="text-base">galery</Label>
+            <details className="rounded-lg border border-border p-4" open>
+              <summary className="cursor-pointer text-base font-medium">galery</summary>
+              <div className="mt-3 space-y-3">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {profileData.galery.map((item, index) => (
                   <div key={`${item}-${index}`} className="space-y-2 rounded-md border border-border p-2">
@@ -1143,10 +1146,12 @@ const AdminPage = () => {
               >
                 Reutilizar desde otro perfil
               </Button>
-            </div>
+              </div>
+            </details>
 
-            <div className="space-y-3 rounded-lg border border-border p-4">
-              <Label className="text-base">experience</Label>
+            <details className="rounded-lg border border-border p-4">
+              <summary className="cursor-pointer text-base font-medium">experience</summary>
+              <div className="mt-3 space-y-3">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {profileData.experience.map((item, index) => (
                   <div key={`${item}-${index}`} className="space-y-2 rounded-md border border-border p-2">
@@ -1203,10 +1208,12 @@ const AdminPage = () => {
               >
                 Reutilizar desde otro perfil
               </Button>
-            </div>
+              </div>
+            </details>
 
-            <div className="space-y-3 rounded-lg border border-border p-4">
-              <Label className="text-base">skils</Label>
+            <details className="rounded-lg border border-border p-4">
+              <summary className="cursor-pointer text-base font-medium">skils</summary>
+              <div className="mt-3 space-y-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {profileData.skils.map((skill, index) => (
                   <div key={`${skill.name}-${index}`} className="space-y-2 rounded-md border border-border p-3">
@@ -1282,7 +1289,8 @@ const AdminPage = () => {
               >
                 Reutilizar desde otro perfil
               </Button>
-            </div>
+              </div>
+            </details>
           </CardContent>
         </Card>
 
