@@ -38,7 +38,7 @@ const Booking = ({ data }) => {
 
     // Generar el mensaje de WhatsApp
     const whatsappMessage = `Hola! Vengo de tu portafolio, me gustaría agendar una reunión para el ${bookingDetails.date} a las ${bookingDetails.time}.`;
-    const whatsappLink = `https://wa.me/4148859372?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappLink = `https://wa.me/4241801627?text=${encodeURIComponent(whatsappMessage)}`;
 
     // Abrir el enlace de WhatsApp
     window.open(whatsappLink, '_blank');
